@@ -1,10 +1,12 @@
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "./ThemeProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <header className="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-primary/20">
@@ -27,6 +29,14 @@ const Header = () => {
             <a href="#contact" className="text-white hover:text-primary transition-colors">
               Contato
             </a>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="text-white hover:text-primary hover:bg-white/10"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
             <Button className="bg-primary hover:bg-primary-dark text-white">
               Solicitar Orçamento
             </Button>
@@ -54,6 +64,14 @@ const Header = () => {
             <a href="#contact" className="block text-white hover:text-primary transition-colors">
               Contato
             </a>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="text-white hover:text-primary hover:bg-white/10 mb-4"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
             <Button className="w-full bg-primary hover:bg-primary-dark text-white">
               Solicitar Orçamento
             </Button>
