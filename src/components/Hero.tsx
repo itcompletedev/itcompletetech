@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-black via-secondary to-primary/10 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-background via-secondary to-primary/10 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/10 to-transparent"></div>
       </div>
@@ -18,18 +18,18 @@ const Hero = () => {
                 <span className="text-primary block">Visão Digital</span>
                 em Realidade
               </h1>
-              <p className="text-xl text-gray-300 max-w-lg">
+              <p className="text-xl text-muted-foreground max-w-lg">
                 Soluções tecnológicas completas que impulsionam o crescimento do seu negócio. 
                 Da estratégia à execução, estamos aqui para fazer acontecer.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white px-8 py-6 text-lg">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
                 Começar Agora
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg">
                 Ver Nossos Cases
               </Button>
             </div>
@@ -37,15 +37,15 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">500+</div>
-                <div className="text-sm text-gray-400">Projetos Entregues</div>
+                <div className="text-sm text-muted-foreground">Projetos Entregues</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-gray-400">Satisfação</div>
+                <div className="text-sm text-muted-foreground">Satisfação</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-gray-400">Suporte</div>
+                <div className="text-sm text-muted-foreground">Suporte</div>
               </div>
             </div>
           </div>
@@ -55,19 +55,19 @@ const Hero = () => {
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
                 <Shield className="text-primary mb-4" size={40} />
                 <h3 className="text-xl font-semibold mb-2">Segurança Garantida</h3>
-                <p className="text-gray-300">Proteção máxima para seus dados e sistemas</p>
+                <p className="text-muted-foreground">Proteção máxima para seus dados e sistemas</p>
               </div>
               
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm ml-8">
                 <Zap className="text-primary mb-4" size={40} />
                 <h3 className="text-xl font-semibold mb-2">Performance Superior</h3>
-                <p className="text-gray-300">Velocidade e eficiência em cada solução</p>
+                <p className="text-muted-foreground">Velocidade e eficiência em cada solução</p>
               </div>
               
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
                 <Target className="text-primary mb-4" size={40} />
                 <h3 className="text-xl font-semibold mb-2">Resultados Precisos</h3>
-                <p className="text-gray-300">Foco total nos seus objetivos de negócio</p>
+                <p className="text-muted-foreground">Foco total nos seus objetivos de negócio</p>
               </div>
             </div>
             
