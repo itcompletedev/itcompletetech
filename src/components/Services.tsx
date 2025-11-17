@@ -43,13 +43,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-black to-secondary/50">
+    <section id="services" className="py-20 bg-gradient-to-b from-background to-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Soluções que <span className="text-primary">Impulsionam</span> Resultados
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Oferecemos um ecossistema completo de serviços tecnológicos para acelerar 
             o crescimento do seu negócio no ambiente digital
           </p>
@@ -66,15 +66,15 @@ const Services = () => {
                 <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit group-hover:bg-primary/20 transition-colors">
                   <service.icon className="text-primary" size={32} />
                 </div>
-                <CardTitle className="text-white text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-gray-300">
+                <CardTitle className="text-foreground text-xl">{service.title}</CardTitle>
+                <CardDescription className="text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
+                    <li key={featureIndex} className="flex items-center text-muted-foreground">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       {feature}
                     </li>
