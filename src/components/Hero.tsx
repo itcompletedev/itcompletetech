@@ -13,9 +13,9 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-foreground">
                 Transforme Sua
-                <span className="text-primary block">Visão Digital</span>
+                <span className="block">Visão Digital</span>
                 em Realidade
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
@@ -36,15 +36,15 @@ const Hero = () => {
 
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">500+</div>
+                <div className="text-3xl font-bold text-foreground">500+</div>
                 <div className="text-sm text-muted-foreground">Projetos Entregues</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">98%</div>
+                <div className="text-3xl font-bold text-foreground">98%</div>
                 <div className="text-sm text-muted-foreground">Satisfação</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">24/7</div>
+                <div className="text-3xl font-bold text-foreground">24/7</div>
                 <div className="text-sm text-muted-foreground">Suporte</div>
               </div>
             </div>
@@ -54,19 +54,19 @@ const Hero = () => {
             <div className="relative z-10 space-y-6">
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
                 <Shield className="text-primary mb-4" size={40} />
-                <h3 className="text-xl font-semibold mb-2">Segurança Garantida</h3>
+                <h3 className="text-xl font-semibold mb-2 text-foreground">Segurança Garantida</h3>
                 <p className="text-muted-foreground">Proteção máxima para seus dados e sistemas</p>
               </div>
               
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm ml-8">
                 <Zap className="text-primary mb-4" size={40} />
-                <h3 className="text-xl font-semibold mb-2">Performance Superior</h3>
+                <h3 className="text-xl font-semibold mb-2 text-foreground">Performance Superior</h3>
                 <p className="text-muted-foreground">Velocidade e eficiência em cada solução</p>
               </div>
               
               <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
                 <Target className="text-primary mb-4" size={40} />
-                <h3 className="text-xl font-semibold mb-2">Resultados Precisos</h3>
+                <h3 className="text-xl font-semibold mb-2 text-foreground">Resultados Precisos</h3>
                 <p className="text-muted-foreground">Foco total nos seus objetivos de negócio</p>
               </div>
             </div>
