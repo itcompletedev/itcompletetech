@@ -8,47 +8,44 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
 gsap.registerPlugin(SplitText, useGSAP);
-
 interface ShaderPlaneProps {
-	vertexShader: string;
-	fragmentShader: string;
-	uniforms: { [key: string]: { value: unknown } };
+  vertexShader: string;
+  fragmentShader: string;
+  uniforms: {
+    [key: string]: {
+      value: unknown;
+    };
+  };
 }
-
 const ShaderPlane = ({
-	vertexShader,
-	fragmentShader,
-	uniforms,
+  vertexShader,
+  fragmentShader,
+  uniforms
 }: ShaderPlaneProps) => {
-	const meshRef = useRef<THREE.Mesh>(null);
-	const { size } = useThree();
-
-	useFrame((state) => {
-		if (meshRef.current) {
-			const material = meshRef.current.material as THREE.ShaderMaterial;
-			material.uniforms.u_time.value = state.clock.elapsedTime * 0.5;
-			material.uniforms.u_resolution.value.set(size.width, size.height, 1.0);
-		}
-	});
-
-	const material = new THREE.ShaderMaterial({
-		vertexShader,
-		fragmentShader,
-		uniforms,
-		side: THREE.FrontSide,
-		depthTest: false,
-		depthWrite: false,
-	});
-
-	return (
-		<mesh ref={meshRef} material={material}>
+  const meshRef = useRef<THREE.Mesh>(null);
+  const {
+    size
+  } = useThree();
+  useFrame(state => {
+    if (meshRef.current) {
+      const material = meshRef.current.material as THREE.ShaderMaterial;
+      material.uniforms.u_time.value = state.clock.elapsedTime * 0.5;
+      material.uniforms.u_resolution.value.set(size.width, size.height, 1.0);
+    }
+  });
+  const material = new THREE.ShaderMaterial({
+    vertexShader,
+    fragmentShader,
+    uniforms,
+    side: THREE.FrontSide,
+    depthTest: false,
+    depthWrite: false
+  });
+  return <mesh ref={meshRef} material={material}>
 			<planeGeometry args={[2, 2]} />
-		</mesh>
-	);
+		</mesh>;
 };
-
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -56,7 +53,6 @@ const vertexShader = `
     gl_Position = vec4(position, 1.0);
   }
 `;
-
 const fragmentShader = `
   precision highp float;
 
@@ -116,143 +112,136 @@ const fragmentShader = `
       gl_FragColor = fragColor;
   }
 `;
-
 interface HeroProps {
-	title: string;
-	description: string;
-	badgeText?: string;
-	badgeLabel?: string;
-	ctaButtons?: Array<{ text: string; href?: string; primary?: boolean }>;
-	microDetails?: Array<string>;
+  title: string;
+  description: string;
+  badgeText?: string;
+  badgeLabel?: string;
+  ctaButtons?: Array<{
+    text: string;
+    href?: string;
+    primary?: boolean;
+  }>;
+  microDetails?: Array<string>;
 }
-
 const SyntheticHero = ({
-	title = "An experiment in light, motion, and the quiet chaos between.",
-	description = "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
-	badgeText = "React Three Fiber",
-	badgeLabel = "Experience",
-	ctaButtons = [
-		{ text: "Explore the Canvas", href: "#explore", primary: true },
-		{ text: "Learn More", href: "#learn-more" },
-	],
-	microDetails = [
-		"Immersive shader landscapes",
-		"Hand-tuned motion easing",
-		"Responsive, tactile feedback",
-	],
+  title = "An experiment in light, motion, and the quiet chaos between.",
+  description = "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
+  badgeText = "React Three Fiber",
+  badgeLabel = "Experience",
+  ctaButtons = [{
+    text: "Explore the Canvas",
+    href: "#explore",
+    primary: true
+  }, {
+    text: "Learn More",
+    href: "#learn-more"
+  }],
+  microDetails = ["Immersive shader landscapes", "Hand-tuned motion easing", "Responsive, tactile feedback"]
 }: HeroProps) => {
-	const sectionRef = useRef<HTMLElement | null>(null);
-	const badgeWrapperRef = useRef<HTMLDivElement | null>(null);
-	const headingRef = useRef<HTMLHeadingElement | null>(null);
-	const paragraphRef = useRef<HTMLParagraphElement | null>(null);
-	const ctaRef = useRef<HTMLDivElement | null>(null);
-	const microRef = useRef<HTMLUListElement | null>(null);
-	const shaderUniforms = useMemo(
-		() => ({
-			u_time: { value: 0 },
-			u_resolution: { value: new THREE.Vector3(1, 1, 1) },
-		}),
-		[],
-	);
-
-	useGSAP(
-		() => {
-			if (!headingRef.current) return;
-
-			document.fonts.ready.then(() => {
-				const split = new SplitText(headingRef.current!, {
-					type: "lines",
-					wordsClass: "hero-lines",
-				});
-
-				gsap.set(split.lines, {
-					filter: "blur(16px)",
-					yPercent: 24,
-					autoAlpha: 0,
-					scale: 1.04,
-					transformOrigin: "50% 100%",
-				});
-
-				if (badgeWrapperRef.current) {
-					gsap.set(badgeWrapperRef.current, { autoAlpha: 0, y: -8 });
-				}
-				if (paragraphRef.current) {
-					gsap.set(paragraphRef.current, { autoAlpha: 0, y: 8 });
-				}
-				if (ctaRef.current) {
-					gsap.set(ctaRef.current, { autoAlpha: 0, y: 8 });
-				}
-
-				const microItems = microRef.current
-					? Array.from(microRef.current.querySelectorAll("li"))
-					: [];
-				if (microItems.length > 0) {
-					gsap.set(microItems, { autoAlpha: 0, y: 6 });
-				}
-
-				const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-				if (badgeWrapperRef.current) {
-					tl.to(
-						badgeWrapperRef.current,
-						{ autoAlpha: 1, y: 0, duration: 0.5 },
-						0,
-					);
-				}
-
-				tl.to(
-					split.lines,
-					{
-						filter: "blur(0px)",
-						yPercent: 0,
-						autoAlpha: 1,
-						scale: 1,
-						duration: 0.9,
-						stagger: 0.12,
-					},
-					0.1,
-				);
-
-				if (paragraphRef.current) {
-					tl.to(
-						paragraphRef.current,
-						{ autoAlpha: 1, y: 0, duration: 0.5 },
-						"-=0.55",
-					);
-				}
-
-				if (ctaRef.current) {
-					tl.to(
-						ctaRef.current,
-						{ autoAlpha: 1, y: 0, duration: 0.5 },
-						"-=0.35",
-					);
-				}
-
-				if (microItems.length > 0) {
-					tl.to(
-						microItems,
-						{ autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1 },
-						"-=0.25",
-					);
-				}
-			});
-		},
-		{ scope: sectionRef },
-	);
-
-	return (
-		<section
-			ref={sectionRef}
-			className="relative flex items-center justify-center min-h-screen overflow-hidden"
-		>
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const badgeWrapperRef = useRef<HTMLDivElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const microRef = useRef<HTMLUListElement | null>(null);
+  const shaderUniforms = useMemo(() => ({
+    u_time: {
+      value: 0
+    },
+    u_resolution: {
+      value: new THREE.Vector3(1, 1, 1)
+    }
+  }), []);
+  useGSAP(() => {
+    if (!headingRef.current) return;
+    document.fonts.ready.then(() => {
+      const split = new SplitText(headingRef.current!, {
+        type: "lines",
+        wordsClass: "hero-lines"
+      });
+      gsap.set(split.lines, {
+        filter: "blur(16px)",
+        yPercent: 24,
+        autoAlpha: 0,
+        scale: 1.04,
+        transformOrigin: "50% 100%"
+      });
+      if (badgeWrapperRef.current) {
+        gsap.set(badgeWrapperRef.current, {
+          autoAlpha: 0,
+          y: -8
+        });
+      }
+      if (paragraphRef.current) {
+        gsap.set(paragraphRef.current, {
+          autoAlpha: 0,
+          y: 8
+        });
+      }
+      if (ctaRef.current) {
+        gsap.set(ctaRef.current, {
+          autoAlpha: 0,
+          y: 8
+        });
+      }
+      const microItems = microRef.current ? Array.from(microRef.current.querySelectorAll("li")) : [];
+      if (microItems.length > 0) {
+        gsap.set(microItems, {
+          autoAlpha: 0,
+          y: 6
+        });
+      }
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out"
+        }
+      });
+      if (badgeWrapperRef.current) {
+        tl.to(badgeWrapperRef.current, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5
+        }, 0);
+      }
+      tl.to(split.lines, {
+        filter: "blur(0px)",
+        yPercent: 0,
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.9,
+        stagger: 0.12
+      }, 0.1);
+      if (paragraphRef.current) {
+        tl.to(paragraphRef.current, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5
+        }, "-=0.55");
+      }
+      if (ctaRef.current) {
+        tl.to(ctaRef.current, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5
+        }, "-=0.35");
+      }
+      if (microItems.length > 0) {
+        tl.to(microItems, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1
+        }, "-=0.25");
+      }
+    });
+  }, {
+    scope: sectionRef
+  });
+  return <section ref={sectionRef} className="relative flex items-center justify-center min-h-screen overflow-hidden">
 			<div className="absolute inset-0 z-0">
 				<Canvas>
-					<ShaderPlane
-						vertexShader={vertexShader}
-						fragmentShader={fragmentShader}
-						uniforms={shaderUniforms}
-					/>
+					<ShaderPlane vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={shaderUniforms} />
 				</Canvas>
 			</div>
 
@@ -269,71 +258,31 @@ const SyntheticHero = ({
 					</Badge>
 				</div>
 
-				<h1
-					ref={headingRef}
-					className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-4"
-				>
+				<h1 ref={headingRef} className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-4">
 					{title}
 				</h1>
 
-				<p
-					ref={paragraphRef}
-					className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light"
-				>
+				<p ref={paragraphRef} className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light">
 					{description}
 				</p>
 
-				<div
-					ref={ctaRef}
-					className="flex flex-wrap items-center justify-center gap-4"
-				>
+				<div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
 					{ctaButtons.map((button, index) => {
-						const isPrimary = button.primary ?? index === 0;
-						const classes = isPrimary
-							? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-emerald-400/80 hover:bg-emerald-300/80 shadow-lg transition-all cursor-pointer"
-							: "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
-
-						if (button.href) {
-							return (
-								<Button
-									key={index}
-									variant={isPrimary ? undefined : "outline"}
-									className={classes}
-									asChild
-								>
+          const isPrimary = button.primary ?? index === 0;
+          const classes = isPrimary ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-emerald-400/80 hover:bg-emerald-300/80 shadow-lg transition-all cursor-pointer" : "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
+          if (button.href) {
+            return <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes} asChild>
 									<a href={button.href}>{button.text}</a>
-								</Button>
-							);
-						}
-
-						return (
-							<Button
-								key={index}
-								variant={isPrimary ? undefined : "outline"}
-								className={classes}
-							>
+								</Button>;
+          }
+          return <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes}>
 								{button.text}
-							</Button>
-						);
-					})}
+							</Button>;
+        })}
 				</div>
 
-				{microDetails.length > 0 && (
-					<ul
-						ref={microRef}
-						className="mt-8 flex flex-wrap justify-center gap-6 text-xs font-light tracking-tight text-emerald-100/70"
-					>
-						{microDetails.map((detail, index) => (
-							<li key={index} className="flex items-center gap-2">
-								<span className="h-1 w-1 rounded-full bg-emerald-200/60" />
-								{detail}
-							</li>
-						))}
-					</ul>
-				)}
+				{microDetails.length > 0}
 			</div>
-		</section>
-	);
+		</section>;
 };
-
 export default SyntheticHero;
