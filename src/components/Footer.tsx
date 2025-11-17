@@ -1,5 +1,6 @@
 
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -7,9 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="text-2xl font-bold text-white">
-              IT<span className="text-primary">COMPLETE</span>
-            </div>
+            <img src={logo} alt="ITCOMPLETE" className="h-8 mb-4" />
             <p className="text-gray-400">
               Transformando visões em realidade digital através de soluções tecnológicas inovadoras.
             </p>
