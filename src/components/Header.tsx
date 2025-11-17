@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +13,7 @@ const Header = () => {
     <header className="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-primary/20">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-white">
-            IT<span className="text-primary">COMPLETE</span>
-          </div>
+          <img src={logo} alt="ITCOMPLETE" className="h-8" />
           
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="text-white hover:text-primary transition-colors">
