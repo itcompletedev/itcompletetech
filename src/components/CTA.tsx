@@ -22,7 +22,7 @@ const CTA = () => {
             Pronto para Transformar 
             <br />seu Negócio?
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground mb-12 max-w-2xl mx-auto">
             Não deixe a concorrência sair na frente. Acelere sua transformação digital 
             agora e conquiste resultados extraordinários.
           </p>
@@ -35,7 +35,7 @@ const CTA = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CheckCircle className="text-primary flex-shrink-0" size={20} />
-                <span className="text-muted-foreground">{benefit}</span>
+                <span className="text-foreground">{benefit}</span>
               </div>
             ))}
           </div>
@@ -50,7 +50,7 @@ const CTA = () => {
             </Button>
           </div>
 
-          <div className="mt-8 text-sm text-muted-foreground">
+          <div className="mt-8 text-sm text-foreground">
             ⭐ Avaliação 5.0 estrelas • Mais de 200 reviews
           </div>
         </div>
