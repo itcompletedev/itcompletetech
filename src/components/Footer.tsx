@@ -1,10 +1,7 @@
-
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import logo from "@/assets/logo.svg";
-
 const Footer = () => {
-  return (
-    <footer className="bg-black border-t border-primary/20">
+  return <footer className="bg-black border-t border-primary/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -42,16 +39,20 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Empresa</h3>
             <ul className="space-y-2 text-gray-400">
               <li><a href="#" className="hover:text-primary transition-colors">Sobre Nós</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Nossa Equipe</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Cases de Sucesso</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Carreiras</a></li>
+              
+              
+              
             </ul>
           </div>
 
           <div>
             <h3 className="text-white font-semibold mb-4">Contato</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>+55 (11) 9999-9999</li>
+              <li>⁨+55 (11) 98080-3677⁩
+
+
+
+            </li>
               <li>contato@itcomplete.com.br</li>
               <li>São Paulo, SP - Brasil</li>
             </ul>
@@ -62,8 +63,6 @@ const Footer = () => {
           <p>&copy; 2024 ITCOMPLETE. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
