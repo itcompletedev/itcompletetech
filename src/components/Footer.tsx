@@ -1,47 +1,66 @@
 
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">
+    <footer className="bg-black border-t border-primary/20">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <div className="text-2xl font-bold text-white">
               IT<span className="text-primary">COMPLETE</span>
-            </h3>
-            <p className="text-muted-foreground">
-              Tecnologia completa para empresas que precisam ir além
+            </div>
+            <p className="text-gray-400">
+              Transformando visões em realidade digital através de soluções tecnológicas inovadoras.
             </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <Twitter size={20} />
+              </a>
+            </div>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-4">Empresa</h4>
-            <ul className="space-y-2">
-              <li><a href="/sobre" className="text-muted-foreground hover:text-primary transition-colors">Sobre Nós</a></li>
-              <li><a href="/solucoes" className="text-muted-foreground hover:text-primary transition-colors">Soluções</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contato</a></li>
+            <h3 className="text-white font-semibold mb-4">Serviços</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-primary transition-colors">Desenvolvimento Web</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Apps Mobile</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Cloud & DevOps</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Consultoria Tech</a></li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-4">Soluções</h4>
-            <ul className="space-y-2">
-              <li><a href="/solucoes" className="text-muted-foreground hover:text-primary transition-colors">Infraestrutura de TI</a></li>
-              <li><a href="/solucoes" className="text-muted-foreground hover:text-primary transition-colors">Cibersegurança</a></li>
-              <li><a href="/solucoes" className="text-muted-foreground hover:text-primary transition-colors">Cloud & Data Center</a></li>
+            <h3 className="text-white font-semibold mb-4">Empresa</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-primary transition-colors">Sobre Nós</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Nossa Equipe</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Cases de Sucesso</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Carreiras</a></li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-4">Contato</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>contato@itcomplete.com</li>
-              <li>Retorno em 24h úteis</li>
+            <h3 className="text-white font-semibold mb-4">Contato</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li>+55 (11) 9999-9999</li>
+              <li>contato@itcomplete.com.br</li>
+              <li>São Paulo, SP - Brasil</li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 IT Complete. Todos os direitos reservados.</p>
+
+        <div className="border-t border-primary/20 mt-12 pt-8 text-center text-gray-400">
+          <p>&copy; 2024 ITCOMPLETE. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

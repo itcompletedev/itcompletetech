@@ -1,33 +1,77 @@
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-black via-secondary to-primary/10 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <div className="w-full h-full bg-gradient-to-br from-primary/10 to-transparent"></div>
+      </div>
       
       <div className="container mx-auto px-4 pt-20 relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
-          <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-            Tecnologia completa para empresas que precisam{" "}
-            <span className="text-primary">ir além.</span>
-          </h1>
-          
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            A IT Complete integra infraestrutura, nuvem, segurança e inteligência digital 
-            em soluções sob medida para sua operação — com desempenho, escala e confiabilidade 
-            de nível enterprise.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                Transforme Sua
+                <span className="text-primary block">Visão Digital</span>
+                em Realidade
+              </h1>
+              <p className="text-xl text-gray-300 max-w-lg">
+                Soluções tecnológicas completas que impulsionam o crescimento do seu negócio. 
+                Da estratégia à execução, estamos aqui para fazer acontecer.
+              </p>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg">
-              Explorar soluções
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10 py-6 text-lg">
-              Solicitar consultoria
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white px-8 py-6 text-lg">
+                Começar Agora
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg">
+                Ver Nossos Cases
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-8 pt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">500+</div>
+                <div className="text-sm text-gray-400">Projetos Entregues</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">98%</div>
+                <div className="text-sm text-gray-400">Satisfação</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">24/7</div>
+                <div className="text-sm text-gray-400">Suporte</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative animate-scale-in">
+            <div className="relative z-10 space-y-6">
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
+                <Shield className="text-primary mb-4" size={40} />
+                <h3 className="text-xl font-semibold mb-2">Segurança Garantida</h3>
+                <p className="text-gray-300">Proteção máxima para seus dados e sistemas</p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm ml-8">
+                <Zap className="text-primary mb-4" size={40} />
+                <h3 className="text-xl font-semibold mb-2">Performance Superior</h3>
+                <p className="text-gray-300">Velocidade e eficiência em cada solução</p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 rounded-2xl border border-primary/20 backdrop-blur-sm">
+                <Target className="text-primary mb-4" size={40} />
+                <h3 className="text-xl font-semibold mb-2">Resultados Precisos</h3>
+                <p className="text-gray-300">Foco total nos seus objetivos de negócio</p>
+              </div>
+            </div>
+            
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl blur-xl"></div>
           </div>
         </div>
       </div>
