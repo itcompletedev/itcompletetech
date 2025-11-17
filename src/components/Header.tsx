@@ -9,41 +9,41 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-primary/20">
+    <header className="fixed w-full z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-white">
+          <div className="text-2xl font-bold">
             IT<span className="text-primary">COMPLETE</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-white hover:text-primary transition-colors">
+            <a href="/" className="text-foreground hover:text-primary transition-colors">
               Início
             </a>
-            <a href="#services" className="text-white hover:text-primary transition-colors">
-              Serviços
+            <a href="/solucoes" className="text-foreground hover:text-primary transition-colors">
+              Soluções
             </a>
-            <a href="#about" className="text-white hover:text-primary transition-colors">
-              Sobre
+            <a href="/sobre" className="text-foreground hover:text-primary transition-colors">
+              Sobre Nós
             </a>
-            <a href="#contact" className="text-white hover:text-primary transition-colors">
+            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
               Contato
             </a>
             <Button 
               variant="ghost" 
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="text-white hover:text-primary hover:bg-white/10"
+              className="hover:text-primary"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            <Button className="bg-primary hover:bg-primary-dark text-white">
-              Solicitar Orçamento
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              Solicitar Consultoria
             </Button>
           </nav>
 
           <button
-            className="md:hidden text-white"
+            className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -52,28 +52,28 @@ const Header = () => {
 
         {isMenuOpen && (
           <nav className="md:hidden mt-4 space-y-4 animate-fade-in">
-            <a href="#home" className="block text-white hover:text-primary transition-colors">
+            <a href="/" className="block text-foreground hover:text-primary transition-colors">
               Início
             </a>
-            <a href="#services" className="block text-white hover:text-primary transition-colors">
-              Serviços
+            <a href="/solucoes" className="block text-foreground hover:text-primary transition-colors">
+              Soluções
             </a>
-            <a href="#about" className="block text-white hover:text-primary transition-colors">
-              Sobre
+            <a href="/sobre" className="block text-foreground hover:text-primary transition-colors">
+              Sobre Nós
             </a>
-            <a href="#contact" className="block text-white hover:text-primary transition-colors">
+            <a href="#contact" className="block text-foreground hover:text-primary transition-colors">
               Contato
             </a>
             <Button 
               variant="ghost" 
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="text-white hover:text-primary hover:bg-white/10 mb-4"
+              className="hover:text-primary mb-4"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            <Button className="w-full bg-primary hover:bg-primary-dark text-white">
-              Solicitar Orçamento
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              Solicitar Consultoria
             </Button>
           </nav>
         )}
