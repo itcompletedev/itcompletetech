@@ -1,13 +1,10 @@
-
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 const Contact = () => {
-  return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-black to-secondary">
+  return <section id="contact" className="py-20 bg-gradient-to-b from-black to-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -35,7 +32,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="text-white font-semibold">Telefone</div>
-                  <div className="text-gray-300">+55 (11) 9999-9999</div>
+                  <div className="text-gray-300">⁨+55 (11) 98080-3677⁩</div>
                 </div>
               </div>
 
@@ -76,32 +73,15 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
-                <Input 
-                  placeholder="Seu nome" 
-                  className="bg-secondary border-primary/20 text-white placeholder-gray-400"
-                />
-                <Input 
-                  placeholder="Seu email" 
-                  type="email"
-                  className="bg-secondary border-primary/20 text-white placeholder-gray-400"
-                />
+                <Input placeholder="Seu nome" className="bg-secondary border-primary/20 text-white placeholder-gray-400" />
+                <Input placeholder="Seu email" type="email" className="bg-secondary border-primary/20 text-white placeholder-gray-400" />
               </div>
               
-              <Input 
-                placeholder="Empresa" 
-                className="bg-secondary border-primary/20 text-white placeholder-gray-400"
-              />
+              <Input placeholder="Empresa" className="bg-secondary border-primary/20 text-white placeholder-gray-400" />
               
-              <Input 
-                placeholder="Telefone" 
-                className="bg-secondary border-primary/20 text-white placeholder-gray-400"
-              />
+              <Input placeholder="Telefone" className="bg-secondary border-primary/20 text-white placeholder-gray-400" />
               
-              <Textarea 
-                placeholder="Conte-nos sobre seu projeto..." 
-                rows={4}
-                className="bg-secondary border-primary/20 text-white placeholder-gray-400 resize-none"
-              />
+              <Textarea placeholder="Conte-nos sobre seu projeto..." rows={4} className="bg-secondary border-primary/20 text-white placeholder-gray-400 resize-none" />
               
               <Button className="w-full bg-primary hover:bg-primary-dark text-white py-6 text-lg">
                 Enviar Mensagem
@@ -115,8 +95,6 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
