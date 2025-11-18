@@ -1,44 +1,50 @@
 
-import { Code, Globe, Smartphone, Database, Cloud, Shield } from "lucide-react";
+import { Server, Shield, Cloud, Network, HardDrive, Activity, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Services = () => {
   const services = [
     {
-      icon: Globe,
-      title: "Desenvolvimento Web",
-      description: "Sites e aplicações web modernas, responsivas e otimizadas para conversão",
-      features: ["React & Next.js", "E-commerce", "Landing Pages", "SEO Otimizado"]
-    },
-    {
-      icon: Smartphone,
-      title: "Apps Mobile",
-      description: "Aplicativos nativos e híbridos para iOS e Android com UX excepcional",
-      features: ["React Native", "Flutter", "UI/UX Design", "App Store Deploy"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps",
-      description: "Infraestrutura escalável e automatizada para máxima performance",
-      features: ["AWS & Azure", "CI/CD", "Monitoramento", "Auto-scaling"]
-    },
-    {
-      icon: Database,
-      title: "Data Analytics",
-      description: "Transforme dados em insights valiosos para tomada de decisão",
-      features: ["Big Data", "BI Dashboards", "Machine Learning", "APIs"]
+      icon: Server,
+      title: "Infraestrutura de TI",
+      description: "Projetos de alto desempenho para servidores, storage, virtualização e ambientes críticos. Construímos fundações resilientes e preparadas para escalar.",
+      features: ["Servidores físicos e virtualizados", "Clusters de alta disponibilidade", "Storage SAN, NAS e HCI", "Padronização e governança"]
     },
     {
       icon: Shield,
-      title: "Cybersecurity",
-      description: "Proteção completa contra ameaças digitais e conformidade",
-      features: ["Pen Testing", "LGPD", "Firewall", "Backup Seguro"]
+      title: "Cibersegurança",
+      description: "Proteção completa com políticas, análise, ferramentas avançadas e monitoramento contínuo. Segurança multilayer para ambientes corporativos.",
+      features: ["Firewalls de próxima geração", "Antivírus corporativo, EDR e XDR", "Gestão de vulnerabilidades", "Segurança de e-mail e web", "Conformidade e governance"]
     },
     {
-      icon: Code,
-      title: "Consultoria Tech",
-      description: "Estratégia e planejamento para transformação digital completa",
-      features: ["Arquitetura", "Code Review", "Treinamentos", "Suporte 24/7"]
+      icon: Cloud,
+      title: "Cloud & Data Center",
+      description: "Desenho, implementação e migração para nuvens públicas, privadas ou híbridas, garantindo elasticidade, performance e redução de custos.",
+      features: ["Cloud híbrida e privada", "Azure/AWS", "Backup em nuvem e DRaaS", "FinOps e otimização"]
+    },
+    {
+      icon: Network,
+      title: "Redes Corporativas",
+      description: "Conectividade segura e de alta performance para suportar operações contínuas e múltiplos dispositivos.",
+      features: ["Switching e Routing", "Wi-Fi corporativo", "Segurança de rede", "VLANs e segmentação"]
+    },
+    {
+      icon: HardDrive,
+      title: "Backup & Recuperação",
+      description: "Soluções para retenção, replicação e recuperação rápida em caso de incidentes.",
+      features: ["Backup local e cloud", "Recuperação rápida", "Continuidade de negócios", "Monitoração e auditoria"]
+    },
+    {
+      icon: Activity,
+      title: "Monitoramento & Observabilidade",
+      description: "Visibilidade total do ambiente e alertas inteligentes para manter performance e estabilidade.",
+      features: ["Monitoramento 24/7", "NOC e SOC", "Alertas inteligentes", "Dashboards unificados", "Deteção de anomalias"]
+    },
+    {
+      icon: Headphones,
+      title: "Serviços gerenciados",
+      description: "Atendimento especializado, equipes dedicadas e SLAs flexíveis para manter a operação estável.",
+      features: ["Service Desk N1, N2, N3", "Outsourcing de TI", "Gestão do ambiente", "Plantões e suporte emergencial"]
     }
   ];
 
