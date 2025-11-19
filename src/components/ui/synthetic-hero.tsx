@@ -18,16 +18,10 @@ interface ShaderPlaneProps {
     };
   };
 }
-const ShaderPlane = ({
-  vertexShader,
-  fragmentShader,
-  uniforms
-}: ShaderPlaneProps) => {
+const ShaderPlane = ({ vertexShader, fragmentShader, uniforms }: ShaderPlaneProps) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const {
-    size
-  } = useThree();
-  useFrame(state => {
+  const { size } = useThree();
+  useFrame((state) => {
     if (meshRef.current) {
       const material = meshRef.current.material as THREE.ShaderMaterial;
       material.uniforms.u_time.value = state.clock.elapsedTime * 0.5;
@@ -40,11 +34,13 @@ const ShaderPlane = ({
     uniforms,
     side: THREE.FrontSide,
     depthTest: false,
-    depthWrite: false
+    depthWrite: false,
   });
-  return <mesh ref={meshRef} material={material}>
-			<planeGeometry args={[2, 2]} />
-		</mesh>;
+  return (
+    <mesh ref={meshRef} material={material}>
+      <planeGeometry args={[2, 2]} />
+    </mesh>
+  );
 };
 const vertexShader = `
   varying vec2 vUv;
@@ -129,15 +125,18 @@ const SyntheticHero = ({
   description = "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
   badgeText = "React Three Fiber",
   badgeLabel = "Experience",
-  ctaButtons = [{
-    text: "Explore the Canvas",
-    href: "#explore",
-    primary: true
-  }, {
-    text: "Learn More",
-    href: "#learn-more"
-  }],
-  microDetails = ["Immersive shader landscapes", "Hand-tuned motion easing", "Responsive, tactile feedback"]
+  ctaButtons = [
+    {
+      text: "Explore the Canvas",
+      href: "#explore",
+      primary: true,
+    },
+    {
+      text: "Learn More",
+      href: "#learn-more",
+    },
+  ],
+  microDetails = ["Immersive shader landscapes", "Hand-tuned motion easing", "Responsive, tactile feedback"],
 }: HeroProps) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const badgeWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -145,144 +144,174 @@ const SyntheticHero = ({
   const paragraphRef = useRef<HTMLParagraphElement | null>(null);
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const microRef = useRef<HTMLUListElement | null>(null);
-  const shaderUniforms = useMemo(() => ({
-    u_time: {
-      value: 0
-    },
-    u_resolution: {
-      value: new THREE.Vector3(1, 1, 1)
-    }
-  }), []);
-  useGSAP(() => {
-    if (!headingRef.current) return;
-    document.fonts.ready.then(() => {
-      const split = new SplitText(headingRef.current!, {
-        type: "lines",
-        wordsClass: "hero-lines"
-      });
-      gsap.set(split.lines, {
-        filter: "blur(16px)",
-        yPercent: 24,
-        autoAlpha: 0,
-        scale: 1.04,
-        transformOrigin: "50% 100%"
-      });
-      if (badgeWrapperRef.current) {
-        gsap.set(badgeWrapperRef.current, {
-          autoAlpha: 0,
-          y: -8
+  const shaderUniforms = useMemo(
+    () => ({
+      u_time: {
+        value: 0,
+      },
+      u_resolution: {
+        value: new THREE.Vector3(1, 1, 1),
+      },
+    }),
+    [],
+  );
+  useGSAP(
+    () => {
+      if (!headingRef.current) return;
+      document.fonts.ready.then(() => {
+        const split = new SplitText(headingRef.current!, {
+          type: "lines",
+          wordsClass: "hero-lines",
         });
-      }
-      if (paragraphRef.current) {
-        gsap.set(paragraphRef.current, {
+        gsap.set(split.lines, {
+          filter: "blur(16px)",
+          yPercent: 24,
           autoAlpha: 0,
-          y: 8
+          scale: 1.04,
+          transformOrigin: "50% 100%",
         });
-      }
-      if (ctaRef.current) {
-        gsap.set(ctaRef.current, {
-          autoAlpha: 0,
-          y: 8
+        if (badgeWrapperRef.current) {
+          gsap.set(badgeWrapperRef.current, {
+            autoAlpha: 0,
+            y: -8,
+          });
+        }
+        if (paragraphRef.current) {
+          gsap.set(paragraphRef.current, {
+            autoAlpha: 0,
+            y: 8,
+          });
+        }
+        if (ctaRef.current) {
+          gsap.set(ctaRef.current, {
+            autoAlpha: 0,
+            y: 8,
+          });
+        }
+        const microItems = microRef.current ? Array.from(microRef.current.querySelectorAll("li")) : [];
+        if (microItems.length > 0) {
+          gsap.set(microItems, {
+            autoAlpha: 0,
+            y: 6,
+          });
+        }
+        const tl = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
+          },
         });
-      }
-      const microItems = microRef.current ? Array.from(microRef.current.querySelectorAll("li")) : [];
-      if (microItems.length > 0) {
-        gsap.set(microItems, {
-          autoAlpha: 0,
-          y: 6
-        });
-      }
-      const tl = gsap.timeline({
-        defaults: {
-          ease: "power3.out"
+        if (badgeWrapperRef.current) {
+          tl.to(
+            badgeWrapperRef.current,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.5,
+            },
+            0,
+          );
+        }
+        tl.to(
+          split.lines,
+          {
+            filter: "blur(0px)",
+            yPercent: 0,
+            autoAlpha: 1,
+            scale: 1,
+            duration: 0.9,
+            stagger: 0.12,
+          },
+          0.1,
+        );
+        if (paragraphRef.current) {
+          tl.to(
+            paragraphRef.current,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.5,
+            },
+            "-=0.55",
+          );
+        }
+        if (ctaRef.current) {
+          tl.to(
+            ctaRef.current,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.5,
+            },
+            "-=0.35",
+          );
+        }
+        if (microItems.length > 0) {
+          tl.to(
+            microItems,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.5,
+              stagger: 0.1,
+            },
+            "-=0.25",
+          );
         }
       });
-      if (badgeWrapperRef.current) {
-        tl.to(badgeWrapperRef.current, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5
-        }, 0);
-      }
-      tl.to(split.lines, {
-        filter: "blur(0px)",
-        yPercent: 0,
-        autoAlpha: 1,
-        scale: 1,
-        duration: 0.9,
-        stagger: 0.12
-      }, 0.1);
-      if (paragraphRef.current) {
-        tl.to(paragraphRef.current, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5
-        }, "-=0.55");
-      }
-      if (ctaRef.current) {
-        tl.to(ctaRef.current, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5
-        }, "-=0.35");
-      }
-      if (microItems.length > 0) {
-        tl.to(microItems, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.1
-        }, "-=0.25");
-      }
-    });
-  }, {
-    scope: sectionRef
-  });
-  return <section ref={sectionRef} className="relative flex items-center justify-center min-h-screen overflow-hidden">
-			<div className="absolute inset-0 z-0">
-				<Canvas>
-					<ShaderPlane vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={shaderUniforms} />
-				</Canvas>
-			</div>
+    },
+    {
+      scope: sectionRef,
+    },
+  );
+  return (
+    <section ref={sectionRef} className="relative flex items-center justify-center min-h-screen overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Canvas>
+          <ShaderPlane vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={shaderUniforms} />
+        </Canvas>
+      </div>
 
-			<div className="relative z-10 flex flex-col items-center text-center px-6">
-				<div ref={badgeWrapperRef}>
-					<Badge className="mb-6 bg-white/10 hover:bg-white/15 text-emerald-300 backdrop-blur-md border border-white/20 uppercase tracking-wider font-medium flex items-center gap-2 px-4 py-1.5">
-						<span className="text-[10px] font-light tracking-[0.18em] text-emerald-100/80">
-							{badgeLabel}
-						</span>
-						<span className="h-1 w-1 rounded-full bg-emerald-200/60" />
-						<span className="text-xs font-light tracking-tight text-emerald-200">
-							{badgeText}
-						</span>
-					</Badge>
-				</div>
+      <div className="relative z-10 flex flex-col items-center text-center px-6">
+        <div ref={badgeWrapperRef}>
+          <Badge className="mb-6 bg-white/10 hover:bg-white/15 text-emerald-300 backdrop-blur-md border border-white/20 uppercase tracking-wider font-medium flex items-center gap-2 px-4 py-1.5">
+            <span className="text-[10px] font-light tracking-[0.18em] text-emerald-100/80">{badgeLabel}</span>
+            <span className="h-1 w-1 rounded-full bg-emerald-200/60" />
+            <span className="text-xs font-light tracking-tight text-emerald-200">{badgeText}</span>
+          </Badge>
+        </div>
 
-				<h1 ref={headingRef} className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-4">
-					{title}
-				</h1>
+        <h1 ref={headingRef} className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-4">
+          {title}
+        </h1>
 
-				<p ref={paragraphRef} className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light">
-					{description}
-				</p>
+        <p ref={paragraphRef} className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light">
+          {description}
+        </p>
 
-				<div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
-					{ctaButtons.map((button, index) => {
-          const isPrimary = button.primary ?? index === 0;
-          const classes = isPrimary ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-emerald-400/80 hover:bg-emerald-300/80 shadow-lg transition-all cursor-pointer" : "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
-          if (button.href) {
-            return <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes} asChild>
-									<a href={button.href}>{button.text}</a>
-								</Button>;
-          }
-          return <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes}>
-								{button.text}
-							</Button>;
-        })}
-				</div>
+        <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
+          {ctaButtons.map((button, index) => {
+            const isPrimary = button.primary ?? index === 0;
+            const classes = isPrimary
+              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-emerald-400/80 hover:bg-emerald-300/80 shadow-lg transition-all cursor-pointer"
+              : "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
+            if (button.href) {
+              return (
+                <Button key={index} variant={isPrimary ? undefined : "outline"} className={"text-primary"} asChild>
+                  <a href={button.href}>{button.text}</a>
+                </Button>
+              );
+            }
+            return (
+              <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes}>
+                {button.text}
+              </Button>
+            );
+          })}
+        </div>
 
-				{microDetails.length > 0}
-			</div>
-		</section>;
+        {microDetails.length > 0}
+      </div>
+    </section>
+  );
 };
 export default SyntheticHero;
