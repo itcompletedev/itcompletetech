@@ -28,17 +28,20 @@ const Header = () => {
             {
               label: "Infraestrutura de TI",
               description: "Servidores, storage e virtualização",
-              icon: Server
+              icon: Server,
+              link: "/servicos/infraestrutura-ti"
             },
             {
               label: "Cloud & Data Center",
               description: "Nuvens públicas, privadas e híbridas",
-              icon: Cloud
+              icon: Cloud,
+              link: "/servicos/cloud-data-center"
             },
             {
               label: "Redes Corporativas",
               description: "Conectividade segura e performática",
-              icon: Network
+              icon: Network,
+              link: "/servicos/redes-corporativas"
             }
           ]
         },
@@ -48,12 +51,14 @@ const Header = () => {
             {
               label: "Cibersegurança",
               description: "Proteção multilayer completa",
-              icon: Shield
+              icon: Shield,
+              link: "/servicos/ciberseguranca"
             },
             {
               label: "Backup & Recuperação",
               description: "Retenção e recuperação rápida",
-              icon: HardDrive
+              icon: HardDrive,
+              link: "/servicos/backup-recuperacao"
             }
           ]
         },
@@ -63,12 +68,14 @@ const Header = () => {
             {
               label: "Monitoramento",
               description: "Visibilidade total 24/7",
-              icon: Activity
+              icon: Activity,
+              link: "/servicos/monitoramento"
             },
             {
               label: "Serviços Gerenciados",
               description: "Equipes dedicadas e SLAs flexíveis",
-              icon: Headphones
+              icon: Headphones,
+              link: "/servicos/servicos-gerenciados"
             }
           ]
         }

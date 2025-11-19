@@ -12,6 +12,7 @@ export type MegaMenuItem = {
       label: string;
       description: string;
       icon: React.ElementType;
+      link?: string;
     }[];
   }[];
   link?: string;
@@ -109,8 +110,8 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                               const Icon = item.icon;
                               return (
                                 <li key={item.label}>
-                                  <a
-                                    href="#"
+                                  <Link
+                                    to={item.link || "#"}
                                     className="flex items-start space-x-3 group"
                                   >
                                     <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-foreground transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
@@ -124,7 +125,7 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                                         {item.description}
                                       </p>
                                     </div>
-                                  </a>
+                                  </Link>
                                 </li>
                               );
                             })}
