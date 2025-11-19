@@ -16,6 +16,7 @@ const Index = () => {
         description="Soluções tecnológicas completas que impulsionam o crescimento do seu negócio. Da estratégia à execução, estamos aqui para fazer acontecer."
         badgeText="IT Complete"
         badgeLabel="Inovação"
+        style={{"color: primary"}}
         ctaButtons={[
           { text: "Começar Agora", href: "#servicos", primary: true },
           { text: "Ver Nossos Cases", href: "#sobre" }
