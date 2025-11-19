@@ -9,6 +9,13 @@ import Sobre from "./pages/Sobre";
 import Servicos from "./pages/Servicos";
 import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
+import InfraestruturaIT from "./pages/InfraestruturaIT";
+import Ciberseguranca from "./pages/Ciberseguranca";
+import CloudDataCenter from "./pages/CloudDataCenter";
+import RedesCorporativas from "./pages/RedesCorporativas";
+import BackupRecuperacao from "./pages/BackupRecuperacao";
+import Monitoramento from "./pages/Monitoramento";
+import ServicosGerenciados from "./pages/ServicosGerenciados";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +31,13 @@ const App = () => (
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/servicos/infraestrutura-ti" element={<InfraestruturaIT />} />
+            <Route path="/servicos/ciberseguranca" element={<Ciberseguranca />} />
+            <Route path="/servicos/cloud-data-center" element={<CloudDataCenter />} />
+            <Route path="/servicos/redes-corporativas" element={<RedesCorporativas />} />
+            <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
+            <Route path="/servicos/monitoramento" element={<Monitoramento />} />
+            <Route path="/servicos/servicos-gerenciados" element={<ServicosGerenciados />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
