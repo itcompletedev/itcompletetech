@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/LOGOTIPO2025.svg";
 const Footer = () => {
   return <footer className="bg-black border-t border-primary/20">
       <div className="container mx-auto px-4 py-12">

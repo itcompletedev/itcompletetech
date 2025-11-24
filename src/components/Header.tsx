@@ -4,7 +4,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/LOGOTIPO2025.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

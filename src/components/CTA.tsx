@@ -19,8 +19,7 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Pronto para Transformar 
-            <br />seu Negócio?
+            Pronto para Transformar seu Negócio?
           </h2>
           <p className="text-xl text-foreground mb-12 max-w-2xl mx-auto">
             Não deixe a concorrência sair na frente. Acelere sua transformação digital 
@@ -50,9 +49,6 @@ const CTA = () => {
             </Button>
           </div>
 
-          <div className="mt-8 text-sm text-foreground">
-            ⭐ Avaliação 5.0 estrelas • Mais de 200 reviews
-          </div>
         </div>
       </div>
     </section>

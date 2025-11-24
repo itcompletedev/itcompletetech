@@ -6,6 +6,8 @@ import About from "@/components/About";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import threeDsection from "@/components/3DSection";
+import ThreeDsection from "@/components/3DSection";
 
 const Index = () => {
   return (
@@ -27,6 +29,7 @@ const Index = () => {
         ]}
       />
       <Services />
+      <ThreeDsection />
       <About />
       <CTA />
       <Contact />
