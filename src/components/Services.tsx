@@ -1,6 +1,7 @@
 
 import { Server, Shield, Cloud, Network, HardDrive, Activity, Headphones } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import arcs from "../assets/Arcs.svg";
 
 const Services = () => {
   const services = [
