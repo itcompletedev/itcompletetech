@@ -129,7 +129,6 @@ const SyntheticHero = ({
     {
       text: "Explore the Canvas",
       href: "#explore",
-      primary: true,
     },
     {
       text: "Learn More",

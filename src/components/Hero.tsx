@@ -25,28 +25,13 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-secondary-foreground px-8 py-6 text-lg">
                 Começar Agora
                 <ArrowRight className="ml-2" size={20} />
               </Button>
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg">
                 Ver Nossos Cases
               </Button>
-            </div>
-
-            <div className="grid grid-cols-3 gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">500+</div>
-                <div className="text-sm text-muted-foreground">Projetos Entregues</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">98%</div>
-                <div className="text-sm text-muted-foreground">Satisfação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">24/7</div>
-                <div className="text-sm text-muted-foreground">Suporte</div>
-              </div>
             </div>
           </div>
 
