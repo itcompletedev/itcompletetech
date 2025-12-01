@@ -6,8 +6,8 @@ import About from "@/components/About";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import threeDsection from "@/components/3DSection";
 import ThreeDsection from "@/components/3DSection";
-import BusinessTech from "@/components/BusinessTEch";
 
 const Index = () => {
   return (
@@ -19,12 +19,15 @@ const Index = () => {
         badgeText="IT Complete"
         badgeLabel="Inovação"
         ctaButtons={[
-          { text: "Começar Agora", href: "#servicos"},
+          { text: "Começar Agora", href: "#servicos", primary: true },
           { text: "Ver Nossos Cases", href: "#sobre" }
         ]}
-        microDetails={[]}
+        microDetails={[
+          "500+ Projetos Entregues",
+          "98% Satisfação",
+          "24/7 Suporte"
+        ]}
       />
-      <BusinessTech />
       <Services />
       <ThreeDsection />
       <About />
