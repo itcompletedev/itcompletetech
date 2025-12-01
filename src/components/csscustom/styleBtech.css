@@ -1,6 +1,6 @@
 .BusinessTech {
     height: fit-content;
-    color: --primary;
+    color: var(--primary);
 }
 
 .containerBtech{
@@ -64,9 +64,9 @@
 
     .inner-Btech.two{
         height: 50vh;
-        color: --primary;
+        color: var(--primary);
         font-size: 3rem;
-        font-family: unbounded;
+        font-family: 'Unbounded', sans-serif;
      }
 
      
@@ -78,7 +78,7 @@
      }
 
      #btechguy{
-        top: -160;
+        top: -160px;
         width: 900px;
         position: absolute;
      }

@@ -19,14 +19,10 @@ const Index = () => {
         badgeText="IT Complete"
         badgeLabel="Inovação"
         ctaButtons={[
-          { text: "Começar Agora", href: "#servicos" },
+          { text: "Começar Agora", href: "#servicos"},
           { text: "Ver Nossos Cases", href: "#sobre" }
         ]}
-        microDetails={[
-          "500+ Projetos Entregues",
-          "98% Satisfação",
-          "24/7 Suporte"
-        ]}
+        microDetails={[]}
       />
       <BusinessTech />
       <Services />
