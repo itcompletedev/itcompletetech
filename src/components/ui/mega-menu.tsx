@@ -1,5 +1,4 @@
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -54,12 +53,9 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
               >
                 <span>{navItem.label}</span>
                 {(isHover === navItem.id || openMenu === navItem.label) && (
-                  <motion.div
-                    layoutId="hover-bg"
+                  <div
                     className="absolute inset-0 size-full bg-primary/10"
-                    style={{
-                      borderRadius: 99,
-                    }}
+                    style={{ borderRadius: 99 }}
                   />
                 )}
               </Link>
@@ -78,68 +74,57 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                   />
                 )}
                 {(isHover === navItem.id || openMenu === navItem.label) && (
-                  <motion.div
-                    layoutId="hover-bg"
+                  <div
                     className="absolute inset-0 size-full bg-primary/10"
-                    style={{
-                      borderRadius: 99,
-                    }}
+                    style={{ borderRadius: 99 }}
                   />
                 )}
               </button>
             )}
 
-            <AnimatePresence>
-              {openMenu === navItem.label && navItem.subMenus && (
-                <div className="absolute left-0 top-full w-auto pt-2 z-10">
-                  <motion.div
-                    className="w-max border border-border bg-background/95 backdrop-blur-sm p-4"
-                    style={{
-                      borderRadius: 16,
-                    }}
-                    layoutId="menu"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                  >
-                    <div className="flex w-fit shrink-0 space-x-9 overflow-hidden">
-                      {navItem.subMenus.map((sub) => (
-                        <motion.div layout className="w-full" key={sub.title}>
-                          <h3 className="mb-4 text-sm font-medium capitalize text-muted-foreground">
-                            {sub.title}
-                          </h3>
-                          <ul className="space-y-6">
-                            {sub.items.map((item) => {
-                              const Icon = item.icon;
-                              return (
-                                <li key={item.label}>
-                                  <Link
-                                    to={item.link || "#"}
-                                    className="flex items-start space-x-3 group"
-                                  >
-                                    <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-foreground transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                                      <Icon className="h-5 w-5 flex-none" />
-                                    </div>
-                                    <div className="w-max leading-5">
-                                      <p className="shrink-0 text-sm font-medium text-foreground">
-                                        {item.label}
-                                      </p>
-                                      <p className="shrink-0 text-xs text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                                        {item.description}
-                                      </p>
-                                    </div>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+            {openMenu === navItem.label && navItem.subMenus && (
+              <div className="absolute left-0 top-full w-auto pt-2 z-10">
+                <div
+                  className="w-max border border-border bg-background/95 backdrop-blur-sm p-4"
+                  style={{ borderRadius: 16 }}
+                >
+                  <div className="flex w-fit shrink-0 space-x-9 overflow-hidden">
+                    {navItem.subMenus.map((sub) => (
+                      <div className="w-full" key={sub.title}>
+                        <h3 className="mb-4 text-sm font-medium capitalize text-muted-foreground">
+                          {sub.title}
+                        </h3>
+                        <ul className="space-y-6">
+                          {sub.items.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                              <li key={item.label}>
+                                <Link
+                                  to={item.link || "#"}
+                                  className="flex items-start space-x-3 group"
+                                >
+                                  <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-foreground transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
+                                    <Icon className="h-5 w-5 flex-none" />
+                                  </div>
+                                  <div className="w-max leading-5">
+                                    <p className="shrink-0 text-sm font-medium text-foreground">
+                                      {item.label}
+                                    </p>
+                                    <p className="shrink-0 text-xs text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              )}
-            </AnimatePresence>
+              </div>
+            )}
           </li>
         ))}
       </ul>
