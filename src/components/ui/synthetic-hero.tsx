@@ -296,7 +296,7 @@ const SyntheticHero = ({
               : "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
             if (button.href) {
               return (
-                <Button key={index} variant={isPrimary ? undefined : "outline"} className="text-black dark:text-black" asChild>
+                <Button key={index} variant={isPrimary ? undefined : "outline"} className={isPrimary ? "text-black dark:text-black" : "text-white dark:text-white"} asChild>
                   <a href={button.href}>{button.text}</a>
                 </Button>
               );
