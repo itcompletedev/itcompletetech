@@ -1,15 +1,98 @@
 
 import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Server, Shield, Cloud, Network, HardDrive, Activity, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/LOGOTIPO2025.svg";
+import MegaMenu from "@/components/ui/mega-menu";
+import type { MegaMenuItem } from "@/components/ui/mega-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const location = useLocation();
+
+  const menuItems: MegaMenuItem[] = [
+    {
+      id: 1,
+      label: "Início",
+      link: "/",
+    },
+    {
+      id: 2,
+      label: "Serviços",
+      subMenus: [
+        {
+          title: "Infraestrutura",
+          items: [
+            {
+              label: "Infraestrutura de TI",
+              description: "Servidores, storage e virtualização",
+              icon: Server,
+              link: "/servicos/infraestrutura-ti",
+            },
+            {
+              label: "Cloud & Data Center",
+              description: "Soluções em nuvem e data centers",
+              icon: Cloud,
+              link: "/servicos/cloud-datacenter",
+            },
+            {
+              label: "Redes Corporativas",
+              description: "Design e implementação de redes",
+              icon: Network,
+              link: "/servicos/redes-corporativas",
+            },
+          ],
+        },
+        {
+          title: "Segurança & Proteção",
+          items: [
+            {
+              label: "Cibersegurança",
+              description: "Proteção completa contra ameaças",
+              icon: Shield,
+              link: "/servicos/ciberseguranca",
+            },
+            {
+              label: "Backup & Recuperação",
+              description: "Proteção de dados empresariais",
+              icon: HardDrive,
+              link: "/servicos/backup-recuperacao",
+            },
+          ],
+        },
+        {
+          title: "Gestão & Suporte",
+          items: [
+            {
+              label: "Monitoramento",
+              description: "Observabilidade completa",
+              icon: Activity,
+              link: "/servicos/monitoramento",
+            },
+            {
+              label: "Serviços Gerenciados",
+              description: "Gestão completa de TI",
+              icon: Headphones,
+              link: "/servicos/servicos-gerenciados",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      label: "Sobre",
+      link: "/sobre",
+    },
+    {
+      id: 4,
+      label: "Contato",
+      link: "/contato",
+    },
+  ];
 
   return (
     <header className="fixed w-full z-50 bg-background/90 backdrop-blur-sm border-b border-primary/20">
@@ -19,39 +102,8 @@ const Header = () => {
             <img src={logo} alt="ITCOMPLETE" className="h-8" />
           </Link>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className={`hover:text-primary transition-colors ${
-                location.pathname === "/" ? "text-primary" : "text-foreground"
-              }`}
-            >
-              Início
-            </Link>
-            <Link 
-              to="/servicos" 
-              className={`hover:text-primary transition-colors ${
-                location.pathname === "/servicos" ? "text-primary" : "text-foreground"
-              }`}
-            >
-              Serviços
-            </Link>
-            <Link 
-              to="/sobre" 
-              className={`hover:text-primary transition-colors ${
-                location.pathname === "/sobre" ? "text-primary" : "text-foreground"
-              }`}
-            >
-              Sobre
-            </Link>
-            <Link 
-              to="/contato" 
-              className={`hover:text-primary transition-colors ${
-                location.pathname === "/contato" ? "text-primary" : "text-foreground"
-              }`}
-            >
-              Contato
-            </Link>
+          <nav className="hidden md:flex items-center space-x-4">
+            <MegaMenu items={menuItems} />
             <Button 
               variant="ghost" 
               size="icon"

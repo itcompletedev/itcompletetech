@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ThreeDsection from "@/components/3DSection";
-import BusinessTech from "@/components/BusinessTEch"
+import BusinessTech from "@/components/BusinessTech"
 
 const Index = () => {
   return (
