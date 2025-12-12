@@ -1,0 +1,34 @@
+#thenav{
+    background: linear-gradient(80deg, rgb(43, 56, 42), #5dc859e1);
+}
+
+#thenav nav a{
+    color: white;
+}
+
+#thenav nav button{
+    color: white;
+}
+
+#themegamenu{
+    width: fit-content;
+}
+
+#innerMegaMenu{
+    display: flex;
+    
+}
+
+#insideMegaMenuNav{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.megamenu-items{
+    width: 100%;
+}
+
+.megamenu-items ul{
+    width: fit-content;
+}

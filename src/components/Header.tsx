@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/LOGOTIPO2025.svg";
 import MegaMenu from "@/components/ui/mega-menu";
 import type { MegaMenuItem } from "@/components/ui/mega-menu";
+import "../components/csscustom/stylehome.css"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,7 +96,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed w-full z-50 bg-background/90 backdrop-blur-sm border-b border-primary/20">
+    <header id="thenav" className="fixed w-full z-50 backdrop-blur-sm border-b border-primary/20">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/">
@@ -104,7 +105,7 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center space-x-4">
             <MegaMenu items={menuItems} />
-            <Button 
+            <Button
               variant="ghost" 
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -112,7 +113,7 @@ const Header = () => {
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button id="ctaMenu">
               Solicitar Orçamento
             </Button>
           </nav>
@@ -124,7 +125,7 @@ const Header = () => {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
+{/* 
         {isMenuOpen && (
           <nav className="md:hidden mt-4 space-y-4 animate-fade-in">
             <Link 
@@ -171,11 +172,11 @@ const Header = () => {
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button id="ctaMenu" className="w-full bg-primary hover:bg-primary/90">
               Solicitar Orçamento
             </Button>
           </nav>
-        )}
+        )} */}
       </div>
     </header>
   );

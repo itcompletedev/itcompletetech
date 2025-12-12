@@ -6,12 +6,14 @@ const BusinessTech = () => {
   return (
     <div className="BusinessTech">
         <div className="containerBtech">
+        <div className="inner-Btech one">
+        </div>
         <div className="inner-Btech two">
-               <h5>Tecnologia Empresarial</h5>
-            </div>
-            <div className="inner-Btech one">
-              <img id="btechguy" src={BtechGuy}></img>
-            </div>
+          <div className="inner-Btech two-content">
+            <h2>Tecnologia Empresarial</h2>
+            <p>Transforme Sua Visão Digital em Realidade com a nossa equipe de especialistas em tecnologia.</p>
+          </div>
+        </div>
         </div>
     </div>
   );

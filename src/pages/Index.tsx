@@ -17,7 +17,7 @@ const Index = () => {
         title="Transforme Sua Visão Digital em Realidade"
         description="Soluções tecnológicas completas que impulsionam o crescimento do seu negócio. Da estratégia à execução, estamos aqui para fazer acontecer."
         badgeText="IT Complete"
-        badgeLabel="Inovação"
+        badgeLabel=""
         ctaButtons={[
           { text: "Começar Agora", href: "#servicos" },
           { text: "Ver Nossos Cases", href: "#sobre" }

@@ -83,14 +83,15 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
             )}
 
             {openMenu === navItem.label && navItem.subMenus && (
-              <div className="absolute left-0 top-full w-auto pt-2 z-10">
+              <div id="themegamenu" className="absolute left-0 right-10 top-full  pt-2 z-10">
                 <div
-                  className="w-max border border-border bg-background/95 backdrop-blur-sm p-4"
+                  className="border border-border bg-background/95 backdrop-blur-sm p-4"
                   style={{ borderRadius: 16 }}
+                  id="innerMegaMenu"
                 >
-                  <div className="flex w-fit shrink-0 space-x-9 overflow-hidden">
+                  <div id="insideMegaMenuNav">
                     {navItem.subMenus.map((sub) => (
-                      <div className="w-full" key={sub.title}>
+                      <div className="megamenu-items" key={sub.title}>
                         <h3 className="mb-4 text-sm font-medium capitalize text-muted-foreground">
                           {sub.title}
                         </h3>

@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 21%;
 
-    --primary: 91 67% 64%;
+    --primary: 91 67% 64% ;
     --primary-foreground: 0 0% 21%;
 
     --secondary: 91 30% 95%;
@@ -90,11 +90,19 @@
 
 @layer base {
   * {
-    @apply border-border;
+    margin: 0;
+    padding: 0;
+  }
+
+  p{
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 400;
+    color: #333;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 
   h1, h2, h3 {

@@ -123,8 +123,8 @@ interface HeroProps {
 const SyntheticHero = ({
   title = "An experiment in light, motion, and the quiet chaos between.",
   description = "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
-  badgeText = "React Three Fiber",
-  badgeLabel = "Experience",
+  badgeText = "",
+  badgeLabel = "",
   ctaButtons = [
     {
       text: "Explore the Canvas",
@@ -273,11 +273,11 @@ const SyntheticHero = ({
 
       <div className="relative z-10 flex flex-col items-center text-center px-6">
         <div ref={badgeWrapperRef}>
-          <Badge className="mb-6 bg-white/10 hover:bg-white/15 text-emerald-300 backdrop-blur-md border border-white/20 uppercase tracking-wider font-medium flex items-center gap-2 px-4 py-1.5">
+       {/*    <Badge className="mb-6 bg-white/10 hover:bg-white/15 text-emerald-300 backdrop-blur-md border border-white/20 uppercase tracking-wider font-medium flex items-center gap-2 px-4 py-1.5">
             <span className="text-[10px] font-light tracking-[0.18em] text-emerald-100/80">{badgeLabel}</span>
             <span className="h-1 w-1 rounded-full bg-emerald-200/60" />
             <span className="text-xs font-light tracking-tight text-emerald-200">{badgeText}</span>
-          </Badge>
+          </Badge> */}
         </div>
 
         <h1 ref={headingRef} className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-4">
@@ -296,13 +296,13 @@ const SyntheticHero = ({
               : "px-8 py-3 rounded-xl text-base font-medium border-white/30 text-white hover:bg-white/10 backdrop-blur-lg transition-all cursor-pointer";
             if (button.href) {
               return (
-                <Button key={index} variant={isPrimary ? undefined : "outline"} className={"text-primary"} asChild>
+                <Button key={index} variant={isPrimary ? undefined : "outline"}  asChild >
                   <a href={button.href}>{button.text}</a>
                 </Button>
               );
             }
             return (
-              <Button key={index} variant={isPrimary ? undefined : "outline"} className={classes}>
+              <Button key={index} className="">
                 {button.text}
               </Button>
             );
