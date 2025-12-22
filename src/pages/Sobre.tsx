@@ -25,14 +25,14 @@ const Sobre = () => {
 
   const timeline = [
     {
-      year: "2014",
+      year: "2008",
       title: "Fundação",
       description: "Início da jornada com foco em desenvolvimento web"
     },
     {
       year: "2017",
       title: "Expansão",
-      description: "Ampliação para cloud e mobile com 100+ projetos entregues"
+      description: "Ampliação para cloud e mobile."
     },
     {
       year: "2020",
