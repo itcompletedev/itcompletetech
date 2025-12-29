@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { Menu, X, Sun, Moon, Server, Shield, Cloud, Network, HardDrive, Activity, Headphones } from "lucide-react";
+import { Menu, X, Server, Shield, Cloud, Network, HardDrive, Activity, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "./ThemeProvider";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/LOGOTIPO2025.svg";
 import MegaMenu from "@/components/ui/mega-menu";
@@ -11,7 +10,6 @@ import "../components/csscustom/stylehome.css"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
   const location = useLocation();
 
   const menuItems: MegaMenuItem[] = [
@@ -105,14 +103,6 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center space-x-4">
             <MegaMenu items={menuItems} />
-            <Button
-              variant="ghost" 
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="hover:text-primary hover:bg-primary/10"
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </Button>
             <Button id="ctaMenu">
               Solicitar Orçamento
             </Button>
